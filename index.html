@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Hello! this is the content</p>
+<p id="content"></p>
+
+<script>
+    function sendGet() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                // Typical action to be performed when the document is ready:
+                document.getElementById("content").innerHTML = xhttp.responseText;
+            }
+        };
+        xhttp.open("GET", "https://hc.dev.zalo.me/api/currentuser", true);
+        xhttp.send();
+    }
+
+    sendGet();
+</script>
+</body>
+</html>
